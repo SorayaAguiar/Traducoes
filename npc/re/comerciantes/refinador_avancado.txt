@@ -1,0 +1,161 @@
+//===== Cronus Script =======================================
+//= Refinador Avançado
+//===== Por: ==================================================
+//= L0ne_W0lf
+//===== Versão Atual: =====================================
+//= 1.4
+//===== Compatível com: =====================================
+//= rAthena SVN
+//= Cronus-emulator
+//===== Descrição: =========================================
+//= [Conversão Aegis]
+//= Refinador que utiliza minérios enrriquecidos para aumentar o aprimoramento.
+//= Depois de uma conversasão com Doddler, foi estabelecido que
+//= o refinador avançado trabalha similar ao item "Goma de Mascar"
+//= A chance de sucesso não é "aumentada",
+//= se o aprimoramento falhar,você tem uma segunda chance. Ele tenta duas vezes aomesmo tempo
+//= efetivamente, dando lhe uma segunda tentativa.
+//= - Diálogo é apenas parcialmente oficial para iRO.
+//= - Usa a posição iRO para este NPC.
+//===== Comentários Adicionais: =================================
+//= 1.0 Versão inicial. [L0ne_W0lf]
+//= 1.1 Corrigido retorno estranho de função. o_o [L0ne_W0lf]
+//= 1.2 Optimizado meótodo de aprimoramento [Zephyrus]
+//= 1.3 Correçãode erros [Yommy]
+//= 1.4 Removidos diálogos desnecessários [Zephyrus]
+//= 1.5 Tradução para versão pt-br [GM Cold]
+//============================================================
+
+payon,174,138,0	script	Suhnbi#cash	85,{
+	mes "[Suhnbi]";
+	mes "Eu sou o Forjador";
+	mes "Eu posso refinar todos os tipos de armas,";
+	mes "armadura e equipamentos, então deixe-me";
+	mes "saber o que você deseja refinar.";
+	next;
+	setarray .@position$[1], "Cabeça","Corpo","Mão Esquerda","Mão direita","Capa","Sapato","Acessório 1","Acessório 2","Cabeça 2","Cabeça 3";
+	set .@menu$,"";
+	for( set .@i,1; .@i <= 10; set .@i,.@i+1 )
+	{
+		if( getequipisequiped(.@i) )
+			set .@menu$, .@menu$ + .@position$[.@i] + "-" + "[" + getequipname(.@i) + "]";
+
+		set .@menu$, .@menu$ + ":";
+	}
+	set .@part,select(.@menu$);
+
+	if( !getequipisequiped(.@part) )
+		close;
+
+	if( !getequipisenableref(.@part) )
+	{
+		mes "[Suhnbi]";
+		mes "Eu não acho que este item possa ser aprimorado.";
+		close;
+	}
+	if( !getequipisidentify(.@part) )
+	{
+		mes "[Suhnbi]";
+		mes "Este item ainda não foi identificado. Então, não pode ser aprimorado...";
+		close;
+	}
+	if( getequiprefinerycnt(.@part) >= 10 )
+	{
+		mes "[Suhnbi]";
+		mes "Este item não pode ser aprimorado, pois já atingiu no seu nível máximo...";
+		close;
+	}
+
+	// Verifique se você tem os itens necessários e Zeny para aprimorar seus itens
+	// Determina a chance de falha e verifica se você deseja continuar
+	switch( getequipweaponlv(.@part) )
+	{
+		case 1: callsub S_RefineValidate,1,7620,50,.@part; break;
+		case 2: callsub S_RefineValidate,2,7620,200,.@part; break;
+		case 3: callsub S_RefineValidate,3,7620,5000,.@part; break;
+		case 4: callsub S_RefineValidate,4,7620,20000,.@part; break;
+		default: callsub S_RefineValidate,0,7619,2000,.@part; break;
+	}
+
+	if( getequippercentrefinery(.@part) > rand(100) || getequippercentrefinery(.@part) > rand(100) )
+	{
+		mes "[Suhnbi]";
+		mes "Clink! Clank! Clunk!";
+		SuccessRefItem .@part;
+		next;
+		Emotion e_no1;
+		mes "[Suhnbi]";
+		mes "Aqui está! Está feito.";
+		mes "Já tem tempo que eu fiz uma arma tão boa. Você deve estar feliz por que ela agora se tornou mais forte!";
+		close;
+	}
+	mes "[Suhnbi]";
+	mes "Clink! Clank! Clunk!";
+	FailedRefItem .@part;
+	next;
+	if (rand(5) == 1){
+		Emotion e_cash;
+	} else {
+		Emotion e_omg;
+	}
+	mes "[Suhnbi]";
+	mes "Tosse!!!!";
+	next;
+	mes "[Suhnbi]";
+	mes "Tosse...Tosse..";
+	mes "Que pena...";
+	mes "Seu equipamento quebrou durante o processo de aprimoramento. Eu te disse mais cedo que isto poderia acontecer!";
+	close;
+
+S_RefineValidate:
+	mes "[Suhnbi]";
+	if (getarg(0))
+		mes "Uma arma de nível " + getarg(0) + "...";
+	mes "Para refinar este item eu preciso de uma ^ff9999" + getitemname(getarg(1)) + "^000000 e uma taxa de serviço de " + getarg(2) + " Zeny.";
+	mes "Você deseja continuar?";
+	next;
+	if( select("Sim:Não") == 1 )
+	{
+		if( getequippercentrefinery(getarg(3)) < 100 )
+		{
+			mes "[Suhnbi]";
+			mes "Ual!!";
+			mes "Está armaparece";
+			mes "que provavelmente foi apromorada...";
+			mes "muitas vezes...";
+			mes "Ela pode quebrar se";
+			mes "você aprimorá-la novamente.";
+			next;
+			mes "E se ela quebrar,";
+			mes "você não pode usá-la novamente!";
+			mes "Todas as cartas contidas nela e";
+			mes "propriedades";
+			mes "^ff0000serão perdidas^000000!!";
+			mes "^ff0000 além disso, o equipamento irá quebrar!^000000";
+			mes " ";
+			mes "Você tem certeza que deseja continuar?";
+			next;
+			if( select("Sim:Não") == 2 )
+			{
+				mes "[Suhnbi]";
+				mes "Eu concordo totalmente...";
+				mes "Eu posso ser um grande Forjador,mas muitas vezes até eu cometo erros.";
+				close;
+			}
+		}
+		if( countitem(getarg(1)) > 0 && Zeny > getarg(2) )
+		{
+			delitem getarg(1), 1;
+			set Zeny, Zeny - getarg(2);
+			return;
+		}
+		mes "[Suhnbi]";
+		mes "Você não parece ter Zeny suficiente ou " + getitemname(getarg(1)) + "...";
+		mes "Vá pegar um pouco mais. Eu vou estar aqui todos os dias, se você precisar de mim.";
+		close;
+	}
+	mes "[Suhnbi]";
+	mes "Sim... Não precisa correr.";
+	mes "Não tenha pressa.";
+	close;
+}
