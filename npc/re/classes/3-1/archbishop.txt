@@ -1,269 +1,269 @@
-//===== rAthena Script =======================================
-//= Arch Bishop Job change Quest
+//===== Cronus Script =======================================
+//= Quest de Classe Arcebispo
 //===== By: ==================================================
-//= L0ne_W0lf
-//= Credits: Gepard
-//===== Current Version: =====================================
+//= GM Cold
+//= Creditos: Gepard
+//===== Versão atual: =====================================
 //= 1.5
-//===== Compatible With: =====================================
-//= rAthena SVN
-//===== Description: =========================================
-//= [Translated from the Official]
-//= Job change Quest from Priest / High Priest -> Arch Bishop.
+//===== Compatível Com: =====================================
+//= Cronus SVN
+//===== Descrição: =========================================
+//= [Traduzido por GM Cold]
+//= Quest de mudança de classe Sacerdote / Sumo Sacerdote -> Arcebispo.
 //===== Additional Comments: =================================
-//= 1.0 First version.
-//= 1.1 Fixed class checks for arch bishops.
-//= 1.2 Fixed Job tags typos.
-//= 1.3 Made some NPC's into duplicates and fixed some && / || checks. [Masao]
-//= 1.4 Fixed Job_Archbishop/Job_Archbishop_T typos. [Euphy]
-//= 1.5 Redone the whole Script. [Masao]
-//= 1.5a Fixed little typo in Baby Priest & Baby Arch Bishop checks. [Masao]
+//= 1.0 Primeira Versão.
+//= 1.1 Concertada checagem de classe para arcebispo.
+//= 1.2 Concertadas tags de Classe.
+//= 1.3 Feitas algumas duplicatas de npcs e corrigidos alguns && / || checks. [Masao]
+//= 1.4 Concertados erros de Classe_Arcebispo/Classe_Arcebispo_T. [Euphy]
+//= 1.5 Refeito todo o script. [Masao]
+//= 1.5a Corrigidos erros de digitação para Sacerdodes Bebês & Arcebispos Bebês. [Masao]
 //============================================================
 
-prt_church,103,88,3	script	Praying Minister#arch	60,{
+prt_church,103,88,3	script	Ministro Orando#arch	60,{
 	if ((Class != Job_Priest) && (Class != Job_High_Priest) && (Class != Job_Baby_Priest)) {
 		if (Class == Job_Arch_Bishop || Class == Job_Arch_Bishop_T || Class == Job_Baby_Bishop) {
-			mes "[Praying Minister]";
-			mes "Ah! An Archbishop.";
-			mes "You have reached the state of light.";
-			mes "I hope you give happiness and honor to people during your adventures.";
+			mes "[Ministro Orando]";
+			mes "Ah! Um Arcebispo.";
+			mes "Você alcançou o estado de luz.";
+			mes "Eu espero que você tenha dado esperança e honra às pessoas durante suas aventuras.";
 			close;
 		}
-		mes "[Praying Minister]";
-		mes "In front of the Almighty God Odin, there shall be no person smarter than him, and there will be no person more merciful than him.";
+		mes "[Ministro Orando]";
+		mes "Em frente ao deus Todo-Poderoso Odin, não haverá pessoa mais inteligente do que ele, e não haverá pessoa mais misericordiosa do que ele.";
+		next;
+		mes "[Ministro Orando]";
+		mes "Todos os ministros de Odin devem ser aplicados. Eles também nunca devem ser preguiçosos para servir Odin.";
 		next;
 		mes "[Praying Minister]";
-		mes "All ministers of Odin should be diligent. They should never be too lazy to serve Odin.";
+		mes "Esses dias, eu ouvi dizer que os ministros estão se tornando negligentes em seus deveres para Odin e adornando-se com os esplendores do mundo.";
 		next;
-		mes "[Praying Minister]";
-		mes "Thesedays, I've heard that ministers are becoming lax in their duty to Odin and adorn themselves with the splendors of the world.";
+		mes "[Ministro Orando]";
+		mes "Se você encontrar com qualquer um desses ministro, você pode pedir para eles irem para a igreja em prontera?";
 		next;
-		mes "[Praying Minister]";
-		mes "If you see any of these ministers, can you ask to them to go to the church in prontera?";
-		next;
-		mes "[Praying Minister]";
-		mes "They give out a special aura so you can easily recognize them.";
-		mes "I'm going to make them ministers worthy of serving Odin.";
+		mes "[Ministro Orando]";
+		mes "Eles emanam uma aura especial para que você possa reconhecê-los facilmente.";
+		mes "Eu estou tentando fazer deles ministros dignos para servir Odin.";
 		close;
 	}
 	if ((BaseLevel == 99) && (JobLevel > 49)) {
 		if (job_arch == 0) {
 			if (SkillPoint) {
-				mes "You can't change jobs without using all your skill points. Please use all of your skill points before applying to change jobs~";
+				mes "Você não pode mudar de Classe sem utilizar todos os seus pontos de habilidade. Por favor, utilize todos os seus pontos de habilidades antes de tentar mudar de classe~";
 				close;
 			}
-			mes "[Praying Minister]";
-			mes "In front of the Almighty God Odin, there shall be no person smarter than him, and there will be no person more merciful than him.";
+			mes "[Ministro Orando]";
+			mes "Em frente ao deus Todo-Poderoso Odin, não haverá pessoa mais inteligente do que ele, e não haverá pessoa mais misericordiosa do que ele.";
 			next;
-			mes "[Praying Minister]";
-			mes "All ministers of Odin should be diligent. They should never be too lazy to serve Odin.";
-			next;
-			if (Sex == 1) {
-				mes "[Praying Minister]";
-				mes "Brother, how has your life been?";
-			}
-			else {
-				mes "[Praying Minister]";
-				mes "Sister, how has your life been?";
-			}
-			mes "Have you lived it to it's fullest?";
-			mes "Have you served your life in the light of Odin?";
-			next;
-			mes "[Praying Minister]";
-			mes "We are ministers and our behavior is seen as acts of the Gods.";
-			mes "We should always be mindful of this.";
-			next;
-			mes "[Praying Minister]";
-			mes "We should always tell the truth.";
-			mes "We should not fall prey to lies and deceit.";
+			mes "[Ministro Orando]";
+			mes "Todos os ministros de Odin devem ser aplicados. Eles também nunca devem ser preguiçosos para servir Odin.";
 			next;
 			if (Sex == 1) {
-				mes "[Praying Minister]";
-				mes "Brother...";
+				mes "[Ministro Orando]";
+				mes "Irmão, como tem sido sua vida?";
 			}
 			else {
-				mes "[Praying Minister]";
-				mes "Sister...";
+				mes "[Ministro Orando]";
+				mes "Irmã, como tem sido sua vida?";
 			}
-			mes "Even though we serve Odin, we are normal people.";
-			mes "We can be degraded in spite of ourselves and we must realize that.";
+			mes "Você viveu ela ao maximo?";
+			mes "Você serviu a sua vida para a luz de Odin?";
 			next;
-			mes "[Praying Minister]";
-			mes "We always try to keep our original intention in mind and spread Odin's rule.";
+			mes "[Ministro Orando]";
+			mes "Nós somos ministro e nosso comportamento é visto como atos de Deus.";
+			mes "Devemos sempre estar atentos a isto.";
 			next;
-			menu "How do I become like that?",-;
-			mes "[Praying Minister]";
-			mes "That's a good question.";
-			mes "We have lots of methods.";
-			mes "But, I recommend this.";
+			mes "[Ministro Orando]";
+			mes "Nós temos sempre que contar a verdade.";
+			mes "Não devemos cair diante de mentiras e enganos.";
 			next;
-			mes "[Praying Minister]";
-			mes "Have you ever heard of a";
-			mes "^3131FFHoly Pilgrimage^000000?";
-			mes "A Holy Pilgrimage means going to a holy place to pray to the God Odin for protection and grace.";
+			if (Sex == 1) {
+				mes "[Ministro Orando]";
+				mes "Irmão...";
+			}
+			else {
+				mes "[Ministro]";
+				mes "Irmã...";
+			}
+			mes "Apesar de servirmos Odin, somos pessoas normais.";
+			mes "Podemos ser por causa de nós mesmos e temos que perceber isto.";
 			next;
-			mes "[Praying Minister]";
-			mes "When you pray to Odin in the holy place, you will feel that you are born again.";
+			mes "[Ministro Orando]";
+			mes "Nós sempre tentamos manter a nossa intenção oriiginal em mente e difundir as regras de Odin.";
 			next;
-			mes "[Praying Minister]";
-			mes "What do you think?";
-			mes "Would you like to do a Holy Pilgrimage?";
+			menu "Como posso ser assim?",-;
+			mes "[Ministro Orando]";
+			mes "Esta é uma boa pergunta.";
+			mes "Nós temos diversas maneiras.";
+			mes "Mas, eu recomendo esta.";
 			next;
-			switch (select("Yes I want to.:I'll think about it.")) {
+			mes "[Ministro Orando]";
+			mes "Você ja ouviu falar na";
+			mes "^3131FFSanta Peregrinação^000000?";
+			mes "Uma Santa Romaria significa ir a um lugar santo para orar para o Deus Odin pela proteção e graça.";
+			next;
+			mes "[Ministro Orando]";
+			mes "Quando você ora para Odin em um lugar santo, você se sente como se tivesse nascido de novo.";
+			next;
+			mes "[Ministro Orando]";
+			mes "O que você acha?";
+			mes "Você gostaria de fazer uma Santa Peregrinação?";
+			next;
+			switch (select("Sim eu quero.:Eu vou pensar no assunto.")) {
 			case 1:
-				mes "[Praying Minister]";
-				mes "That's the correct attitude.";
-				mes "A person who lives in one's mundane life would better have a new mind and body and evolve to the way of a true minister of Odin.";
+				mes "[Ministro Orando]";
+				mes "Está é a atitudo correta.";
+				mes "Uma pessoa que vive em uma vida mundana seria melhor ter uma nova mente e corpo e evoluir para a forma de um verdadeiro ministro de Odin.";
 				next;
-				mes "[Praying Minister]";
-				mes "There is a small village named Umbala far from here.";
-				mes "That village is a where a tribe lives in harmony with nature.";
+				mes "[Ministro Orando]";
+				mes "Existe um pequeno vilarejo chamada Umbala, longe daqui.";
+				mes "Este vilarejo é um lugar onde uma tribo vive em harmonia com a natureza.";
 				next;
-				mes "[Praying Minister]";
-				mes "Go there and find Priest Dayan.";
-				mes "Tell him exactly, ''^3131FFI'm here for the Holy Pilgrimage^000000.''";
+				mes "[Ministro Orando]";
+				mes "Va lá e encontre o Sacerdote Dayan.";
+				mes "Diga estas palavras a ele, ''^3131FFEu estou aqui para a Santa Peregrinação^000000.''";
 				next;
-				mes "[Praying Minister]";
-				mes "He's very old so he is hard of hearing.";
-				mes "You have to speak loud and clearly. You got it?";
-				mes "I hope that this paves the way for you to live in the light of Odin......";
+				mes "[Ministro Orando]";
+				mes "Ele é muito velho, então ele é um pouco surdo.";
+				mes "Você tem que falar alto e claramente. Você entendeu?";
+				mes "Espero que isso abra o caminho para que você possa viver na luz de Odin......";
 				set job_arch,1;
 				setquest 2187;
 				close;
 			case 2:
-				mes "[Praying Minister]";
-				mes "A Holy Pilgrimage isn't that difficult.";
-				mes "Just be mindful that once you start the path you will be on your way to the way of a true minister of Odin.";
+				mes "[Ministro Orando]";
+				mes "Uma Santa Peregrinação não é tão dificil.";
+				mes "Basta estar consciente de que uma vez que você iniciar sua caminhada vocêvai estar no caminho para se tornar um verdadeiro ministro de Odin.";
 				next;
-				mes "[Praying Minister]";
-				mes "Feel free to visit me if you change your mind.";
-				mes "I'll always be here for you.";
+				mes "[Ministro Orando]";
+				mes "Sinta-se livre para me visitar se você mudar de idéia.";
+				mes "Eu sempre estarei aqui para você.";
 				close;
 			}
 		}
-		mes "[Praying Minister]";
-		mes "How's it going?";
-		mes "Did you meet Priest Dayan in Umbala?";
+		mes "[Ministro Orando]";
+		mes "Como está indo?";
+		mes "Voc~e encontrou com oSacerdote Dayan em Umbala?";
 		close;
 	}
-	mes "[Praying Minister]";
-	mes "In front of the Almighty God Odin, there shall be no person smarter than him, and there will be no person more merciful than him.";
+	mes "[Ministro Orando]";
+	mes "Em frente ao deus Todo-Poderoso Odin, não haverá pessoa mais inteligente do que ele, e não haverá pessoa mais misericordiosa do que ele.";
+	next;
+	mes "[Ministro Orando]";
+	mes "Todos os ministros de Odin devem ser aplicados. Eles também nunca devem ser preguiçosos para servir Odin.";
 	next;
 	mes "[Praying Minister]";
-	mes "All ministers of Odin should be diligent. They should never be too lazy to serve Odin.";
+	mes "Esses dias, eu ouvi dizer que os ministros estão se tornando negligentes em seus deveres para Odin e adornando-se com os esplendores do mundo.";
 	next;
-	mes "[Praying Minister]";
-	mes "Thesedays, I've heard that ministers are becoming lax in their duty to Odin and adorn themselves with the splendors of the world.";
+	mes "[Ministro Orando]";
+	mes "Se você encontrar com qualquer um desses ministro, você pode pedir para eles irem para a igreja em prontera?";
 	next;
-	mes "[Praying Minister]";
-	mes "If you see any of these ministers, can you ask to them to go to the church in prontera?";
-	next;
-	mes "[Praying Minister]";
-	mes "They give out a special aura so you can easily recognize them.";
-	mes "I'm going to make them ministers worthy of serving Odin.";
+	mes "[Ministro Orando]";
+	mes "Eles emanam uma aura especial para que você possa reconhecê-los facilmente.";
+	mes "Eu estou tentando fazer deles ministros dignos para servir Odin.";
 	close;
 }
 
-umbala,137,227,5	script	Utan Boy#arch	787,{
-	mes "[Utan Boy]";
+umbala,137,227,5	script	Garoto Utan#arch	787,{
+	mes "[Garoto Utan]";
 	mes "........";
 	close;
 }
 
-umbala,139,227,3	script	Priest#arch	60,{
+umbala,139,227,3	script	Sacerdote#arch	60,{
 	if (job_arch < 1) {
-		mes "[Priest]";
+		mes "[Sacerdote]";
 		mes "Un...ba... Unba?";
 		close;
 	}
 	if (job_arch == 1) {
-		mes "[Priest]";
+		mes "[Sacerdote]";
 		mes "Un...ba... Umba?";
 		next;
-		mes "[Utan Boy]";
+		mes "[Garoto Utan]";
 		mes "...............";
 		next;
-		mes "[Priest]";
-		mes "Is that... right?";
-		mes "Hmm... so...";
+		mes "[Sacerdote]";
+		mes "Isso está... certo?";
+		mes "Hmm... então...";
 		mes "Um...ma? Umau...ma?";
 		emotion e_swt;
 		next;
-		mes "[Utan Boy]";
+		mes "[Garoto Utan]";
 		mes "...............";
 		next;
-		mes "[Priest]";
+		mes "[Sacerdote]";
 		mes "Huuuuuu......";
-		mes "Oh, dear . I feel heavy.";
-		mes "hohohoho.";
+		mes "Oh, querido . Eu me sinto pesado.";
+		mes "hahahaha.";
 		next;
-		mes "- mumbling~ -";
+		mes "- balbuciando~ -";
 		next;
-		mes "[Priest]";
+		mes "[Sacerdote]";
 		mes "hahahahaha.";
 		mes "huhuhuhu. humhum.";
 		next;
 		mes "[" + strcharinfo(0) + "]";
-		mes "Hello. are you... Priest Dayan?";
+		mes "Olá. você é o... Sacerdote Dayan?";
 		next;
-		mes "[Priest]";
-		mes "Huh?";
+		mes "[Sarcedote]";
+		mes "Como?";
 		next;
-		mes "He turns his head towards you.";
-		next;
-		mes "[" + strcharinfo(0) + "]";
-		mes "Aren't you Priest Dayan?";
-		next;
-		mes "[Priest]";
-		mes "muttering...";
+		mes "Ele vira a cabeça para você.";
 		next;
 		mes "[" + strcharinfo(0) + "]";
-		mes "Priest! Da~yan! Right!?";
+		mes "Você não é o Sacerdote Dayan?";
 		next;
-		mes "[Priest Dayan]";
-		mes "Ah~, yes.";
-		mes "Yes, I am.";
+		mes "[Sacerdote]";
+		mes "murmurando...";
+		next;
+		mes "[" + strcharinfo(0) + "]";
+		mes "Sacerdote! Da~yan! Certo!?";
+		next;
+		mes "[Sacerto Dayan]";
+		mes "Ah~, sim.";
+		mes "Sim, Eu sou.";
 		if (Sex == 1) {
-			mes "I'm Dayan. Nice to meet you Brother.";
+			mes "Eu sou Dayan. Prazer em conhecê-lo Irmão.";
 		}
 		else {
-			mes "I'm Dayan. Nice to meet you Sister.";
+			mes "Eu sou Dayan. Prazer em conhecê-la Irmã.";
 		}
 		next;
-		mes "The old priest gives you an ear to ear grin. ";
+		mes "O velho sacerdote lhe dá um sorriso de orelha a orelha. ";
 		next;
-		mes "[Priest Dayan]";
-		mes "I forgot to wear my hearing aid. hehe.";
-		mes "Anyway, why have you come here?";
+		mes "[Sacerdote Dayan]";
+		mes "Eu esqueci de botar meu aparelho auditivo. hehe.";
+		mes "Enfim, o que o trouxe aqui?";
 		next;
 		mes "[" + strcharinfo(0) + "]";
-		mes "Hmm, I wanted to tell you...";
+		mes "Hmm, Eu querote dizer...";
 		next;
 		input .@inputstr$;
 		mes "[" + strcharinfo(0) + "]";
 		mes "" + .@inputstr$ + "";
 		next;
-		if (.@inputstr$ != "I'm here for the Holy Pilgrimage") {
-			mes "Priest Dayan doesn't seem to understand you. He just stares at you and smiles.";
+		if (.@inputstr$ != "Eu estou aqui para a Santa Peregrinação") {
+			mes "O Sacerdote Dayan parece não compreendê-lo. Ele apenas olha para você e sorri.";
 			next;
-			mes "[Priest]";
-			mes "Eh? Say what?";
+			mes "[Sacerdote]";
+			mes "Ahn? O que disse?";
 			close;
 		}
-		mes "[Priest Dayan]";
+		mes "[Sacerdote Dayan]";
 		mes "..............?";
 		next;
-		mes "He cups his ears towards you.";
+		mes "Ele estica seu ouvido em sua direção.";
 		next;
 		mes "[" + strcharinfo(0) + "]";
-		mes "^FF0000I'm here for the Holy Pilgrimage!^000000";
-		mes "^FF0000I'm here for the Holy Pilgrimage!^000000";
-		mes "^FF0000I'm here for the Holy Pilgrimage!^000000";
-		mes "^FF0000I'm here for the Holy Pilgrimage!^000000";
+		mes "^FF0000Eu estou aqui para a Santa Peregrinação!^000000";
+		mes "^FF0000Eu estou aqui para a Santa Peregrinação!^000000";
+		mes "^FF0000Eu estou aqui para a Santa Peregrinação!^000000";
+		mes "^FF0000Eu estou aqui para a Santa Peregrinação!^000000";
 		next;
-		mes "[Priest Dayan]";
-		mes "Eh... are you?";
-		mes "A pilgrimage to the Holy Land...";
+		mes "[Sacertode Dayan]";
+		mes "Eh... é você?";
+		mes "Um peregrino da Terra Santa...";
 		mes "It has been a long time since I've seen such a devout minister.";
 		if (Sex == 1) {
 			mes "Welcome. Brother.";

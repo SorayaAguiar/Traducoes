@@ -1,27 +1,28 @@
-//===== rAthena Script ======================================= 
-//= El Dicastes Town
+//===== Cronus Script ======================================= 
+//= Cidade El Dicastes
 //===== By: ================================================== 
-//= Gennosuke Kouga
-//===== Current Version: ===================================== 
+//= GM Cold
+//===== Versão Atual: ===================================== 
 //= 1.1
-//===== Compatible With: ===================================== 
+//===== Compatível Com: ===================================== 
 //= rAthena SVN
+//= Cronus-Emulator
 //===== Description: ========================================= 
-//= El Dicastes Town Script
-//===== Additional Comments: ================================= 
+//= Script cidade de El Dicastes
+//===== Comentários Adicionais: ================================= 
 //= 1.0 First version.
 //= 1.1 Standardized. [Euphy]
 //============================================================
 
-dicastes01,194,159,5	script	Excited Galten#a	492,{
-	mes "[Excited Galten]";
+dicastes01,194,159,5	script	Animada Galten#a	492,{
+	mes "[Animada Galten]";
 	if (isequipped(2782)) {
-		mes "I can't get beautiful";
-		mes "Ahat's image out of my head.";
+		mes "Eu não consigo ficar bonita";
+		mes "A imagem Ahat não sai de minha cabeça.";
 		emotion e_lv;
-		mes "As long as we have him,";
-		mes "it will only be a matter of time before Sapha";
-		mes "will rule this land.";
+		mes "Enquanto temos ele,";
+		mes "isso vai ser só uma questão de tempo antes de Sapha";
+		mes "dominar esta terra.";
 		close;	 }
 	mes "¡ø¢²¢£ ¡Ð ¡ò¡ð¡ð";
 	mes "¡÷¡ø¡ñ ¡ü ¡ü";
@@ -31,38 +32,38 @@ dicastes01,194,159,5	script	Excited Galten#a	492,{
 	close;
 }
 
-dicastes01,201,86,4	script	Sentinel#a	492,{
-	mes "[Sentinel]";
+dicastes01,201,86,4	script	Sentinela#a	492,{
+	mes "[Sentinela]";
 	if (isequipped(2782)) {
-		mes "El Dicastes, the";
-		mes "capital city of Sapha.";
-		mes "The land is pretty rough,";
-		mes "so many outsiders can't get in. Haha...";
+		mes "El Dicastes, a";
+		mes "cidade capital de Sapha.";
+		mes "A terra é bem difícil,";
+		mes "assim muitos estrangeiros não conseguem entrar. Haha...";
 		next;
-		mes "[Sentinel]";
+		mes "[Sentinela]";
 		mes "...";
 		next;
-		mes "[Sentinel]";
-		mes "Hey, you are an outsider!";
+		mes "[Sentinela]";
+		mes "Opa, você é um estrangeiro!";
 		close; }
 	mes "¡ô¢±¢± ¡û ¡ó¡Ð¡ñ ¢£ ¢¤¡ú";
 	mes "¡ø¡ó¢² ¢¤ ";
 	mes "¡õ¡ó¡Ð ¢³ ¡Ð¡õ¢£ ¡û ¡ú¡ï";
 	next;
-	mes "[Sentinel]";
+	mes "[Sentinela]";
 	mes "¡ù";
 	next;
-	mes "[Sentinel]";
+	mes "[Sentinela]";
 	mes "¡ñ¡ö¡ï ¡ú ¡ó¢³¡ô";
 	close;	
 }
 
-dicastes01,194,95,5	script	Sentinel#b	450,{
-	mes "[Sentinel]";
+dicastes01,194,95,5	script	Sentinela#b	450,{
+	mes "[Sentinela]";
 	if (isequipped(2782)) {
-		mes "I permit your entry.";
-		mes "But if you dare to cause trouble";
-		mes "you won't know what hit you. Beware!";
+		mes "Eu permitirei sua entrada.";
+		mes "Mas se você se atrever a causar problemas";
+		mes "Você não vai saber o que o atingiu. Tenha cuidado!";
 		close; }
 	mes "¡ø¡ô¡ü ¡ø ¡ó";
 	mes "¡ø¡ï¡û ¡ó ¡û¢¤¢² ¡÷ ¢£";
@@ -70,88 +71,88 @@ dicastes01,194,95,5	script	Sentinel#b	450,{
 	close;
 }
 
-dicastes01,252,133,1	script	Training Galten#a	450,{
-	mes "[Training Galten]";
+dicastes01,252,133,1	script	Treinador Galten#a	450,{
+	mes "[Treinador Galten]";
 	if (isequipped(2782)) {
-		mes "I am a Sapha warrior.";
-		mes "I am never lazy with my training.";
+		mes "Eu sou um Guerreiro de Sapha.";
+		mes "Eu nunca sou priguiçoso com meu treinamento.";
 		next;
-		mes "[Training Galten]";
+		mes "[Treinador Galten]";
 		mes "Hahaha~";
-		mes "Just joking. I can't fight a guest in our land.";
+		mes "Estou brincando. Eu não posso lutar com um hóspede em nossa terra.";
 		close; }
 	mes "ø¡ô¡ü ¡¡ø¡ô¡ü ¡ø";
 	mes "ô ¡ø";
 	next;
-	mes "- I can't understand what he's trying to say. -";
+	mes "- Eu não consigo entender o que ele está tentando dizer. -";
 	close;
 }
 
-dicastes01,272,166,0	script	Training Galten#b	450,{
-	mes "[Training Galten]";
+dicastes01,272,166,0	script	Treinador Galten#b	450,{
+	mes "[Treinador Galten]";
 	if (isequipped(2782)) {
-		mes "You seem to be an experienced adventurer.";
-		mes "I would like to try testing your strength.";
+		mes "Você parece ser um experiente aventureiro.";
+		mes "Eu gostaria de tentar testar sua força.";
 		next;
-		mes "[Training Galten]";
+		mes "[Treinador Galten]";
 		mes "Hahaha~";
-		mes "Just joking. I can't fight a guest to our land.";
+		mes "Estou brincando. Eu não posso lutar com um hóspede em nossa terra.";
 		close; }
 	mes "¡ø¡ô¡ü ¡ø";
 	mes "¡ø¡ô¡ü ¡ø ¡ø¡ô¡ü ¡ø ¡ø¡ô¡ü ¡ø";
 	next;
-	mes "- I can't understand what he's trying to say. -";
+	mes "- Eu não consigo entender o que ele está tentando dizer. -";
 	close;
 }
 
-dicastes01,244,166,0	script	Training Galten#c	450,{
-	mes "[Training Galten]";
+dicastes01,244,166,0	script	Treinador Galten#c	450,{
+	mes "[Treinador Galten]";
 	if (isequipped(2782)) {
-		mes "I wonder if Ahat knows how";
-		mes "hard I am training.";
+		mes "Eu me pergunto se Ahat sabe como";
+		mes "eu estou treinando duro.";
 		close; }
 	mes "¡ø¡ô¡ü ¡ø ¡ø¡ô¡ü ¡ø";
 	mes "¡ø¡ô¡ü ¡ø";
 	next;
-	mes "- I can't understand what he's trying to say. -";
+	mes "- Eu não consigo entender o que ele está tentando dizer. -";
 	close;
 }
 
-dicastes01,234,158,0	script	Training Galten#d	450,{
-	mes "[Training Galten]";
+dicastes01,234,158,0	script	Treinador Galten#d	450,{
+	mes "[Treinador Galten]";
 	if (isequipped(2782)) {
-		mes "I'll be ready for anything.";
-		mes "If I keep up with my training every day.";
+		mes "Eu estarei preparado para o que vier.";
+		mes "Se eu seguir meu treinamento todos os dias.";
 		close; }
 	mes "¡ø¡ô¡ü ¡ø ¡ø¡ô¡ü";
 	mes "¡ø¡ô¡ü ¡ø¡ ø¡ô¡ü ¡ø";
 	next;
-	mes "- I can't understand what he's trying to say. -";
+	mes "- Eu não consigo entender o que ele está tentando dizer. -";
 	close;
 }
 
-dic_in01,349,282,4	script	Waiting Galten#in_1	492,{
-	mes "[Waiting Galten]";
+dic_in01,349,282,4	script	Servente Galten#in_1	492,{
+	mes "[Servente Galten]";
 	if (isequipped(2782)) {
-		mes "Here is the Battle Station.";
-		mes "We are all tensed up and ready for action.";
+		mes "Aqui é a arena de batalha.";
+		mes "Estamos todos tensos e prontos para ação.";
 		close;	 }
 	mes "¡ñ¡õ¡ü ¢£ ¡ó";
 	mes "¢¤¡ó¡õ ¢£ ¢£¡ò¡ô ¡ö ¡ú¢¤¡ú ¢¤ ¡ò¡ö¡õ ¢¤";
 	close;
 }
 
-dic_in01,370,261,1	script	Waiting Galten#in_2	492,{
-	mes "[Waiting Galten]";
+dic_in01,370,261,1	script	Servente Galten#in_2	492,{
+	mes "[Servente Galten]";
 	if (isequipped(2782)) {
-		mes "Boring.";
+		mes "Aborrecido.";
 		close; }
 	mes "¡ù¢¤¢±";
 	close;
 }
 
-dic_in01,381,261,1	script	Waiting Galten#in_3	492,{
-	mes "[Waiting Galten]";
+dic_in01,381,261,1	script	Servente Galten#in_3	492,{
+	mes "[Servente Galten]";
 	if (isequipped(2782)) {
 		mes "Zzzzz...";
 		close; }
@@ -159,17 +160,17 @@ dic_in01,381,261,1	script	Waiting Galten#in_3	492,{
 	close;
 }
 
-dic_in01,370,282,4	script	Waiting Galten#in_4	492,{
-	mes "[Waiting Galten]";
+dic_in01,370,282,4	script	Servente Galten#in_4	492,{
+	mes "[Servente Galten]";
 	if (isequipped(2782)) {
-		mes "El Dicastes is the most peaceful place in this world as long as I am here.";
+		mes "El Dicastes é o lugar mais pacífico do mundo enquanto eu estou aqui.";
 		close; }
 	mes "¡ï¡ï¢³ ¡þ ¡ö¢³¢£ ¢± ¢³¡û¡õ ¡ø ¡þ¡ï¡ï ¡ø ¡û";
 	close;
 }
 
-dic_in01,354,219,4	script	Resting Galten#in_5	492,{
-	mes "[Resting Galten]";
+dic_in01,354,219,4	script	Galten Descansando#in_5	492,{
+	mes "[Galten Descansando]";
 	if (isequipped(2782)) {
 		mes "Resting is always so sweet.";
 		close; }
