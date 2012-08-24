@@ -1,0 +1,53 @@
+//===== Cronus Script ======================================= 
+//= NPC de Batalha de Clã
+//===== Por: ================================================== 
+//= L0ne_W0lf
+//===== Versão Atual: ===================================== 
+//= 1.2
+//===== Compatível Com: ===================================== 
+//= Cronus SVN
+//===== Comentários Adicionais: ================================= 
+//= 1.0 Versão Inicial. [L0ne_W0lf]
+//= 1.1 Otimizado. [Euphy]
+//= 1.2 Traduzido.[GM Cold]
+//============================================================ 
+
+pvp_y_room,77,85,4	script	Guia de Batalha de Clã	105,{
+
+	setarray .@map1X[1],7,9,16,8,20;
+	setarray .@map2X[1],91,90,83,91,79;
+	setarray .@mapY[1],49,49,50,49,50;
+
+	mes "[Guia de Batalha de Clã]";
+	mes "Como você está?";
+	mes "Eu sou a Guia de Batalha de Clã";
+	mes "para os novos mapas PvP.";
+	mes "Deixe me saber para qual mapa";
+	mes "você deseja ir.";
+	next;
+	set .@i, select("Mapa 1:Mapa 2:Mapa 3:Mapa 4:Mapa 5");
+	mes "[Guia de Batalha de Clã]";
+	mes "Você escolheu o mapa "+.@i+".";
+	mes "Agora, em qual equipe você ";
+	mes "está? Você pode escolher";
+	mes "entre Equipe 1 e Equipe 2.";
+	next;
+	set .@j, select("Equipe 1:Equipe 2");
+	mes "[Guia de Batalha de Clã]";
+	mes "Tudo bem, eu vou movê-lo";
+	mes "para o mapa "+.@i+" como membro";
+	mes "do time "+.@j+". Você está pronto?";
+	mes "para ser teletransportado agora?";
+	next;
+	if(select("Sim:Não")==2) {
+		mes "[Guia de Batalha de Clã]";
+		mes "Tudo bem, eu espero";
+		mes "vê-lo nomavemente";
+		mes "nas arenas PvP!";
+		close; }
+	mes "[Guia de Batalha de Clã]";
+	mes "Ótimo! Divirta-se~";
+	close2;
+	warp "guild_vs"+.@i,getd(".@map"+.@j+"X["+.@i+"]"),.@mapY[.@i];
+	end;
+}
